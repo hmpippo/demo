@@ -1,0 +1,40 @@
+plugins {
+    id 'maven-publish'
+    id 'org.springframework.boot' version '2.4.0' apply false
+    id 'io.spring.dependency-management' version "1.0.10.RELEASE"
+}
+
+def mavenLocal = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+
+group 'org.example'
+version '1.0-RELEASE'
+
+java {
+    // withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        myPublication(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "$mavenLocal"
+        }
+    }
+}
+
+//使用SpringBootPlugin提供的依赖插件
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure'
+}

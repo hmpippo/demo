@@ -1,0 +1,4 @@
+demo:
+  isOpen: true
+  say-what: hello
+  to-who: alex

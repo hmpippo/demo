@@ -1,0 +1,17 @@
+server:
+  port: 8888
+demo:
+  isOpen: true
+  say-what: hey
+  to-who: alex
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always

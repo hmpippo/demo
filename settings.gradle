@@ -1,0 +1,7 @@
+rootProject.name = 'demo-multi'
+include 'sharding-demo'
+include 'aop-dynamic-dataSource-demo'
+include 'grpc-demo'
+include 'demo-spring-boot-starter'
+include 'demo-starter-test'
+

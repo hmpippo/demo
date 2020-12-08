@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:32000/game
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    slave:
+      jdbc-url: jdbc:mysql://localhost:32001/game
+      username: pig   # 只读账户
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#mybatis:
+  #type-aliases-package: org.example.dao.entity
+  #config-location:
+  #mapper-locations: classpath:mapper/**/*.xml

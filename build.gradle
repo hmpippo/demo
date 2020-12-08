@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = 'org.example'
+    version = '1.0-SNAPSHOT'
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        mavenCentral()
+    }
+}
+
+subprojects {
+    ext {
+        slf4jVersion = '1.8.0-beta1'
+        lombokVersion = '1.18.4'
+        myBatisPlusVersion = '3.3.2'
+        shardingSphereVersion = '4.0.0-RC1'
+        duridVersion = '1.1.16'
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation "com.baomidou:mybatis-plus-boot-starter:${myBatisPlusVersion}"
+        runtimeOnly 'mysql:mysql-connector-java'
+        runtimeOnly 'org.springframework.boot:spring-boot-starter-actuator'
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+        implementation "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'junit:junit:4.12'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
