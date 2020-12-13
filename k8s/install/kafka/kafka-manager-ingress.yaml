@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kafka-manager
+spec:
+  rules:
+  - host: alex.bunny.com
+    http:
+      paths:
+      - backend:
+          serviceName: cmak
+          servicePort: 9000
